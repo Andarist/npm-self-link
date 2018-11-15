@@ -1,0 +1,40 @@
+{
+  "name": "npm-self-link",
+  "version": "0.0.0",
+  "description": "A CLI tool which links the package in which it is run (if it's not already linked).",
+  "main": "./lib/index.js",
+  "bin": "./bin/npm-self-link.js",
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "precommit": "lint-staged",
+    "release:patch": "npm version patch && npm publish && git push --follow-tags",
+    "release:minor": "npm version minor && npm publish && git push --follow-tags",
+    "release:major": "npm version major && npm publish && git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andarist/npm-self-link.git"
+  },
+  "keywords": [],
+  "author": "Mateusz Burzyński <mateuszburzynski@gmail.com> (https://github.com/Andarist)",
+  "contributors": [
+    "Bo Lingen <lingenbw@gmail.com> (https://github.com/citycide)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Andarist/npm-self-link/issues"
+  },
+  "homepage": "https://github.com/Andarist/npm-self-link#readme",
+  "devDependencies": {
+    "husky": "^1.1.3",
+    "lint-staged": "^8.0.4",
+    "prettier": "^1.15.2"
+  },
+  "dependencies": {
+    "path-exists": "^3.0.0",
+    "pkg-up": "^2.0.0"
+  }
+}
