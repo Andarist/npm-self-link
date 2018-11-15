@@ -6,7 +6,7 @@
   "bin": "./bin/npm-self-link.js",
   "files": [
     "bin",
-    "dist"
+    "lib"
   ],
   "scripts": {
     "precommit": "lint-staged",
