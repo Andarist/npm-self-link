@@ -1,7 +1,7 @@
 'use strict'
 
 const { dirname, join, resolve } = require('path')
-const childProcess = promisify(require('child_process'))
+const childProcess = require('child_process')
 const pathExists = require('path-exists')
 const pkgUp = require('pkg-up')
 const promisify = require('util.promisify')
