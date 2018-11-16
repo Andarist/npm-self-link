@@ -25,11 +25,11 @@ module.exports = async inputOptions => {
   const pkgNodeModule = join(pkgDir, 'node_modules', pkgName)
 
   if (await pathExists(pkgNodeModule)) {
-    return
+    return { pkgName, newlyLinked: false }
   }
 
   await execFile('npm', ['link'], { cwd })
   await execFile('npm', ['link', pkgName], { cwd })
 
-  return { pkgName }
+  return { pkgName, newlyLinked: true }
 }
