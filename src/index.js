@@ -1,10 +1,12 @@
 'use strict'
 
 const { dirname, join, resolve } = require('path')
-const execFile = promisify(require('child_process').execFile)
+const childProcess = promisify(require('child_process'))
 const pathExists = require('path-exists')
 const pkgUp = require('pkg-up')
 const promisify = require('util.promisify')
+
+const execFile = promisify(childProcess.execFile)
 
 const withDefaults = ({ cwd = '.' } = {}) => ({
   cwd: resolve(process.cwd(), cwd),
