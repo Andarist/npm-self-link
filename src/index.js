@@ -8,6 +8,8 @@ const promisify = require('util.promisify')
 
 const execFile = promisify(childProcess.execFile)
 
+const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm'
+
 const withDefaults = ({ cwd = '.' } = {}) => ({
   cwd: resolve(process.cwd(), cwd),
 })
@@ -28,8 +30,8 @@ module.exports = async inputOptions => {
     return { pkgName, newlyLinked: false }
   }
 
-  await execFile('npm', ['link'], { cwd })
-  await execFile('npm', ['link', pkgName], { cwd })
+  await execFile(npm, ['link'], { cwd })
+  await execFile(npm, ['link', pkgName], { cwd })
 
   return { pkgName, newlyLinked: true }
 }
